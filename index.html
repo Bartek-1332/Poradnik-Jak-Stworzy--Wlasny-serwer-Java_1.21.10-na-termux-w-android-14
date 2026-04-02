@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poradnik: Serwer Minecraft 1.21.10 na Termux</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #0a0a0a; color: #00ff41; padding: 15px; line-height: 1.6; }
+        
+        .container { 
+            max-width: 750px; 
+            margin: auto; 
+            background: #111;
+            padding: 20px; 
+            /* Swiecace ramki: gora czerwona, reszta zielona */
+            border-top: 5px solid #ff0000;
+            border-left: 3px solid #00ff41;
+            border-right: 3px solid #00ff41;
+            border-bottom: 3px solid #00ff41;
+            box-shadow: 0px -10px 20px rgba(255, 0, 0, 0.6), 0px 10px 20px rgba(0, 255, 65, 0.4);
+            border-radius: 8px;
+        }
+
+        h1 { font-size: 1.4em; text-align: center; border-bottom: 2px solid #00ff41; padding-bottom: 10px; color: white; text-transform: uppercase; }
+        .step { margin-top: 20px; background: #000; padding: 15px; border-left: 4px solid #ff00ff; border-radius: 5px; }
+        h2 { font-size: 1.1em; color: #ff00ff; margin-top: 0; }
+        .important-title { font-size: 1.5em; color: #ffff00; text-align: center; margin-top: 30px; text-decoration: underline; font-weight: bold; }
+        code { background: #1a1a1a; color: #fff; padding: 8px; display: block; margin: 10px 0; border: 1px dashed #00ff41; font-size: 0.9em; word-break: break-all; }
+        a { color: #00ffff; text-decoration: underline; font-weight: bold; word-break: break-all; }
+        .note { color: #ffae00; font-size: 0.9em; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Jak stworzyc wlasny serwer Minecraft na Java PaperMC na 1.21.10 za pomoca android i Termux</h1>
+
+    <div class="step">
+        <h2>Krok 1: Instalowanie CMD (Termux)</h2>
+        <p>Wyszukaj w przegladarce <strong>F-Droid</strong>, pobierz Termux (oryginal 10 od gory) przez Sklep Play lub bezposredni link.</p>
+    </div>
+
+    <div class="step">
+        <h2>Krok 2: Przygotowanie dzialania plikow</h2>
+        <code>pkg update && pkg upgrade</code>
+    </div>
+
+    <div class="step">
+        <h2>Krok 3: Przygotowywanie systemu</h2>
+        <p>Wpisz <strong>mkdir serwer</strong>.</p>
+        <p>Link do pobrania silnika: <br>
+        <a href="https://fill-ui.papermc.io/projects/paper/version/1.21.10" target="_blank">https://fill-ui.papermc.io/projects/paper/version/1.21.10</a></p>
+        <p>Pobierz tutaj: Przejdz do strony i kliknij pierwsza ikonke strzalki w dol ⬇️.</p>
+    </div>
+
+    <div class="important-title">Teraz (Wazne)</div>
+
+    <div class="step">
+        <p>Przenies (jesli masz oryginalne pliki wl) z Pobranych do: na samym dole znajdz ikonke Termuxa i nacisnij, potem wejdz do folderu serwer i kliknij przenies.</p>
+    </div>
+
+    <div class="step">
+        <h2>Krok 5: Stworzenie pliku eula.txt</h2>
+        <p>W Dokumentach Google stworz plik z <code>eula=true</code>. W aplikacji <strong>Pliki</strong> zmien nazwe z .pdf na <code>eula.txt</code> i przenies do: Termux -> folder serwer.</p>
+        <p>Stworz folder <code>version</code>, a w nim <code>1.21.10</code>.</p>
+    </div>
+
+    <div class="step">
+        <h2>Krok 6: Uruchamianie i IP</h2>
+        <p>Wpisz: <code>pkg install miniupnpc</code>, potem <code>upnp -s</code>. Sprawdz LAN i wpisz: <code>upnp -a [adres LAN] 25565 25565 TCP</code>.</p>
+        <p>IP sprawdzisz przez: <code>curl ifconfig.me</code>. Adres to np. 192.162.0.1:25565.</p>
+        <code>java -Xms12M -Xmx1024M -XX:+UseG1GC -jar paper-1.21.10-130.jar nogui</code>
+    </div>
+
+    <div class="important-title">Dodatkowa funkcja</div>
+
+    <div class="step">
+        <h2>Skrypt server.sh</h2>
+        <p>Wpisz <code>nano server.sh</code>, wklej kod startowy, zapisz (Ctrl+X, Y, Enter) i wpisz <code>chmod +x server.sh</code>.</p>
+    </div>
+
+</div>
+
+<p style="text-align:center; font-size: 0.8em; color: #444; margin-top: 20px;">Poradnik stworzony w <strong>Plikach</strong> na Androidzie</p>
+
+</body>
+</html>
+Stworzyłeś wlasne swój serwer na <strong>termux</strong> w Androidzie Brawo!!!</p>
+
+</body>
+</html>
+e>nano server.sh</code>, a w nim:</p>
+        <code>#!/bin/bash<br>java -Xms12M -Xmx1024M -jar nazwa_pliku.jar nogui</code>
+        <p>Zapisz: <strong>Ctrl + X</strong>, potem <strong>Y</strong> i <strong>Enter</strong>.</p>
+        <p>Nadaj uprawnienia:</p>
+        <code>chmod +x server.sh</code>
+        <p>Wystarczy wpisac <code>./server.sh</code> aby uruchoic, a <code>stop</code> aby wylaczyc.</p>
+    </div>
+
+</div>
+
+<p style="text-align:center; font-size: 0.8em; color: #444; margin-top: 20px;">Poradnik stworzony w <strong>ZArchiver</strong> na Androidzie</p>
+
+</body>
+</html>
