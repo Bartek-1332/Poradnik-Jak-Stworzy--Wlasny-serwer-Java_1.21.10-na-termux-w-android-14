@@ -1,5 +1,6 @@
-1 PORADNIK JAK OTWORZYĆ 2 PORADNIK I Z NIEGO CZYTAĆ.
-1. Przejdź do sekcji akcje.
-2. Przewijaj w dół aż zobaczysz okienko z połączonymi skryptami.
-3. Naciśnij po prawej na od dołu ten link.
-4. I masz dostęp do poradnika.
+1 PORADNIK JAK OTWORZYĆ PORADNIK JAK STWORZYĆ SERWER!!!
+1. Przejdź do sekcji kod.
+2. Przewijaj w dół aż zobaczysz linkjkę Realses.
+3. Naciśnij pod spodem realses w deployments.
+4. wejdź w link pierwszego github-pages.
+5. I masz otwarty poeadnik!!!
